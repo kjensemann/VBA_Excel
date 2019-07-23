@@ -73,7 +73,7 @@ i = 0: n = 0
             Else
                 b = (y_vect(n + 1) - y_vect(n)) / (x_vect(n + 1) - x_vect(n))
                 a = y_vect(n) - b * x_vect(n)
-                khjCubicSplineEng = b * x_value + a
+                fCubicSplineEng = b * x_value + a
                 Exit Function
             End If
     ElseIf x_value >= x_vect(UBound(x_vect)) Then
@@ -83,7 +83,7 @@ i = 0: n = 0
             Else
                 b = (y_vect(n) - y_vect(n - 1)) / (x_vect(n) - x_vect(n - 1))
                 a = y_vect(n) - b * x_vect(n)
-                khjCubicSplineEng = b * x_value + a
+                fCubicSplineEng = b * x_value + a
                 Exit Function
             End If
     End If
@@ -176,8 +176,7 @@ b = ((y_vect(n) - y_vect(n - 1)) - c * (x_vect(n) ^ 2 - x_vect(n - 1) ^ 2) - d *
 a = y_vect(n - 1) - b * x_vect(n - 1) - c * x_vect(n - 1) ^ 2 - d * x_vect(n - 1) ^ 3
 
 '1st ORDER DERIVATIVES OF INTERMEDIATE POINTS
-
-khjCubicSplineEng = d * x_value ^ 3 + c * x_value ^ 2 + b * x_value + a
+fCubicSplineEng = d * x_value ^ 3 + c * x_value ^ 2 + b * x_value + a
 
 Application.Calculation = xlCalculationAutomatic ' TUR ON AUTOMATIC CALCULATION AGAIN
 
